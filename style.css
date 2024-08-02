@@ -1,0 +1,57 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2e2e2e;
+    color: #fff;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    background-color: #026702; /* Green background */
+    padding: 50px 100px; /* Increased horizontal padding */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80%; /* Set a width to increase horizontal size */
+    max-width: 800px; /* Optional: max width to keep it responsive */
+}
+
+h1 {
+    color: #ffa500; /* Orange color for heading */
+    margin-bottom: 35px; /* Increased margin-bottom */
+    font-size: 3rem; /* Increased font size */
+}
+
+p {
+    font-size: 2rem; /* Increased font size */
+}
+
+#message-el {
+    font-style: italic;
+}
+
+#cards-el,
+#sum-el,
+#per-el {
+    margin: 25px 0; /* Increased margin */
+}
+
+.btn {
+    background-color: #ffa500; /* Orange color for buttons */
+    color: #fff;
+    border: none;
+    padding: 20px 40px; /* Increased padding */
+    margin: 20px; /* Increased margin */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.5rem; /* Increased font size */
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #cc8400; /* Darker orange on hover */
+}

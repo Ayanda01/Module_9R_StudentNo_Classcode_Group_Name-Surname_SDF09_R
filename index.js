@@ -1,11 +1,57 @@
-// 1. Create two variables, firstCard and secondCard. 
-// Set their values to a random number between 2-11
+// index.js
 
-// 2. Create a variable, sum, and set it to the sum of the two cards
+// Create variables for the first and second card
+let firstCard = 6;
+let secondCard = 9;
+let cards = [firstCard, secondCard]; // array to hold the cards
+let sum = firstCard + secondCard;
+let hasBlackJack = false;
+let isAlive = true;
+let message = "";
 
-let firstCard = 6
-let secondCard = 9
+// Store references to the HTML elements
+let messageEl = document.getElementById("message-el");
+let sumEl = document.getElementById("sum-el");
+let cardsEl = document.getElementById("cards-el");
+let startBtn = document.getElementById("start-btn");
+let newCardBtn = document.getElementById("new-card-btn");
 
-let sum = firstCard + secondCard
+// Add event listeners to buttons
+startBtn.addEventListener("click", startGame);
+newCardBtn.addEventListener("click", newCard);
 
-console.log(sum)
+// Function to start the game
+function startGame() {
+    renderGame();
+}
+
+// Function to render the game
+function renderGame() {
+    cardsEl.textContent = "Cards: " + cards.join(" ");
+    sumEl.textContent = "Sum: " + sum;
+    if (sum <= 20) {
+        message = "Do you want to draw a new card?";
+    } else if (sum === 21) {
+        message = "You've got Blackjack!";
+        hasBlackJack = true;
+    } else {
+        message = "You're out of the game!";
+        isAlive = false;
+    }
+    messageEl.textContent = message;
+}
+
+// Function to draw a new card
+function newCard() {
+    if (isAlive && !hasBlackJack) {
+        let card = getRandomCard();
+        sum += card;
+        cards.push(card);
+        renderGame();
+    }
+}
+
+// Function to get a random card
+function getRandomCard() {
+    return Math.floor(Math.random() * 11) + 1;
+}
